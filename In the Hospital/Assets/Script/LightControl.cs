@@ -52,7 +52,7 @@ public class LightControl : MonoBehaviour
         }
         if (warpTimer > 3)
         {
-            SceneManager.LoadSceneAsync(1);
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
     void SponeLight()
