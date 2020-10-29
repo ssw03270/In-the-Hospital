@@ -22,7 +22,7 @@ public class PlayerControl : MonoBehaviour
         audioPlayer.Stop();
         audioPlayer.loop = true;
         audioPlayer.time = 0;
-        audioPlayer.volume = 0.7F;
+        audioPlayer.volume = 0.5F;
         
     }
 
