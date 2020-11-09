@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
     private AudioSource audioPlayer;
     public AudioClip walkAudio;
 
+    public GameObject wallToDelete;
+
     private float moveSpeed = 2f;
-    private float cameraSpeed = 2f;
+    private float cameraSpeed = 1f;
     
     public static bool isWarp;
+
 
     // Start is called before the first frame update
     void Start()
@@ -70,12 +74,15 @@ public class PlayerControl : MonoBehaviour
         float rotH = cameraSpeed * Input.GetAxis("Mouse X");
         transform.eulerAngles += new Vector3(0f, rotH, 0f);
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag == "Warp")
         {
             isWarp = true;
+        }
+        if (other.transform.tag == "WarpChecker")
+        {
+            wallToDelete.SetActive(false);
         }
     }
 }
